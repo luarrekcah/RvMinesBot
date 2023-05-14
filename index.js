@@ -1,8 +1,6 @@
 const { app, BrowserWindow, Menu, shell } = require('electron')
 
 const createWindow = () => {
-    require('./bot');
-
     const win = new BrowserWindow({
       width: 400,
       height: 250,
@@ -33,7 +31,11 @@ const createWindow = () => {
                   "https://wa.me/+556892402096";
                 shell.openExternal(url);
               },
-            },
+            }, {
+                label: "Menu de desenvolvedor",
+                accelerator: "CmdOrCtrl+Shift+I",
+                role: "toggleDevTools",
+              },
           ],
         },
       ];

@@ -8,7 +8,7 @@ const bot = new TelegramBot(process.env.token, { polling: true });
 
 function readDb() {
   try {
-    const data = fs.readFileSync("./db.json");
+    const data = fs.readFileSync(__dirname + "/db.json");
     return JSON.parse(data);
   } catch (error) {
     console.error("Erro ao ler o arquivo db.json:", error);
@@ -18,7 +18,7 @@ function readDb() {
 
 function writeDb(data) {
   try {
-    fs.writeFileSync("./db.json", JSON.stringify(data, null, 2));
+    fs.writeFileSync(__dirname + "/db.json", JSON.stringify(data, null, 2));
   } catch (error) {
     console.error("Erro ao escrever no arquivo db.json:", error);
   }

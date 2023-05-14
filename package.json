@@ -10,7 +10,7 @@
   "main": "index.js",
   "build": {
     "appId": "com.devluar.rvminesbot",
-    "asar": true,
+    "asar": false,
     "compression": "maximum",
     "files": [
       "**/*",
@@ -26,7 +26,6 @@
     },
     "win": {
       "target": "nsis",
-      "icon": "./src/assets/icon.ico",
       "publish": [
         {
           "provider": "github",
@@ -40,9 +39,6 @@
       "perMachine": true,
       "allowElevation": true,
       "allowToChangeInstallationDirectory": true,
-      "installerIcon": "./src/assets/icon.ico",
-      "uninstallerIcon": "./src/assets/icon.ico",
-      "installerHeaderIcon": "./src/assets/icon.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
     }
@@ -63,6 +59,7 @@
   },
   "devDependencies": {
     "electron": "^23.1.4",
-    "electron-builder": "^23.6.0"
+    "electron-builder": "^23.6.0",
+    "electron-packager": "^17.1.1"
   }
 }
