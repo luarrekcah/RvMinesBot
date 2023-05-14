@@ -1,19 +1,68 @@
 {
+  "name": "RvMinesBot",
+  "version": "1.0.0",
+  "author": {
+    "name": "RaulRodrigues",
+    "url": "https://devluar.com"
+  },
+  "license": "ISC",
+  "description": "",
+  "main": "index.js",
+  "build": {
+    "appId": "com.devluar.rvminesbot",
+    "asar": true,
+    "compression": "maximum",
+    "files": [
+      "**/*",
+      "!node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!node_modules/*/test{,s}",
+      "!node_modules/.bin",
+      "!node_modules/**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,user,suo,cache,log,pdb}"
+    ],
+    "productName": "RvMinesBot",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "./src/assets/icon.ico",
+      "publish": [
+        {
+          "provider": "github",
+          "owner": "luarrekcah",
+          "repo": "dwalt-prospect"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./src/assets/icon.ico",
+      "uninstallerIcon": "./src/assets/icon.ico",
+      "installerHeaderIcon": "./src/assets/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "cross-env DEVELOPMENT=true electron .",
+    "build": "electron-builder",
+    "dist": "electron-builder --publish always",
+    "pack": "electron-builder --dir",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [],
   "dependencies": {
     "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
     "node-telegram-bot-api": "^0.61.0"
   },
-  "name": "RvMinesBot",
-  "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "devDependencies": {
+    "electron": "^23.1.4",
+    "electron-builder": "^23.6.0"
+  }
 }
